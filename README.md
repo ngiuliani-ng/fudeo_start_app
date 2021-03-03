@@ -3,6 +3,7 @@
 A new Flutter application. Fudeo exercises.
 
 ## Project Notes
+
 - Lessons:
     - Lesson 2.1: https://bit.ly/2MKJUge
         - Argument: **Stateless vs Stateful**
