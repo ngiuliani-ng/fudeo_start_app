@@ -82,23 +82,23 @@ class Body extends StatelessWidget {
               height: 32,
             ),
             Contact(
-              name: "Nicolò Giulani",
+              name: "Nicolò Giuliani",
               address: "Riccione, Italy",
             ),
             Contact(
-              name: "Nicolò Giulani",
+              name: "Nicolò Giuliani",
               address: "Riccione, Italy",
             ),
             Contact(
-              name: "Nicolò Giulani",
+              name: "Nicolò Giuliani",
               address: "Riccione, Italy",
             ),
             Contact(
-              name: "Nicolò Giulani",
+              name: "Nicolò Giuliani",
               address: "Riccione, Italy",
             ),
             Contact(
-              name: "Nicolò Giulani",
+              name: "Nicolò Giuliani",
               address: "Riccione, Italy",
             ),
           ],
