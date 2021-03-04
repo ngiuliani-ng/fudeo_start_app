@@ -18,43 +18,44 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned(
-            right: 0,
-            top: 0,
-            bottom: 0,
-            child: SideBar(),
-          ),
-          Positioned(
-            left: 0,
-            right: 100,
-            top: 0,
-            bottom: 0,
-            child: Body(),
+      appBar: AppBar(
+        title: Text("Playlist"),
+        centerTitle: true,
+        actions: [
+          PopupMenuButton(
+            icon: Icon(Icons.more_vert),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: Text("Logout"),
+              ),
+            ],
           ),
         ],
       ),
-    );
-  }
-}
-
-class SideBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      color: Colors.grey.shade200,
-      child: SafeArea(
+      drawer: Drawer(),
+      body: Container(
+        padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            Expanded(
-              child: Container(),
+            Card(
+              child: ListTile(
+                leading: Icon(
+                  Icons.album_rounded,
+                ),
+                title: Text(
+                  "Soldi",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                subtitle: Text(
+                  "Mahmood, Dardust & Charlie Charles",
+                  style: TextStyle(
+                    fontSize: 12,
+                  ),
+                ),
+              ),
             ),
-            IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () {},
-            )
           ],
         ),
       ),
@@ -62,17 +63,32 @@ class SideBar extends StatelessWidget {
   }
 }
 
-class Body extends StatelessWidget {
+class Drawer extends StatefulWidget {
+  @override
+  _DrawerState createState() => _DrawerState();
+}
+
+class _DrawerState extends State<Drawer> {
+  bool _automaticLogin = false;
+
+  void onAutomaticLogin(bool value) {
+    setState(() {
+      _automaticLogin = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        padding: EdgeInsets.all(16),
+    return Container(
+      width: 300,
+      color: Colors.white,
+      padding: EdgeInsets.all(16),
+      child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Contacts",
+              "Settings",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
@@ -81,25 +97,23 @@ class Body extends StatelessWidget {
             SizedBox(
               height: 32,
             ),
-            Contact(
-              name: "Nicolò Giuliani",
-              address: "Riccione, Italy",
-            ),
-            Contact(
-              name: "Nicolò Giuliani",
-              address: "Riccione, Italy",
-            ),
-            Contact(
-              name: "Nicolò Giuliani",
-              address: "Riccione, Italy",
-            ),
-            Contact(
-              name: "Nicolò Giuliani",
-              address: "Riccione, Italy",
-            ),
-            Contact(
-              name: "Nicolò Giuliani",
-              address: "Riccione, Italy",
+            ListTile(
+              title: Text(
+                "Automatic Loging",
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              subtitle: Text(
+                "We'll remember you!",
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              trailing: Switch(
+                value: _automaticLogin,
+                onChanged: onAutomaticLogin,
+              ),
             ),
           ],
         ),
@@ -108,35 +122,129 @@ class Body extends StatelessWidget {
   }
 }
 
-class Contact extends StatelessWidget {
-  Contact({@required this.name, @required this.address});
-  final String name;
-  final String address;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text(
-          name,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        subtitle: Text(
-          address,
-          style: TextStyle(
-            fontSize: 12,
-          ),
-        ),
-        leading: Icon(
-          Icons.person_rounded,
-          color: Colors.indigo,
-        ),
-      ),
-    );
-  }
-}
+// class HomePage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Stack(
+//         children: [
+//           Positioned(
+//             right: 0,
+//             top: 0,
+//             bottom: 0,
+//             child: SideBar(),
+//           ),
+//           Positioned(
+//             left: 0,
+//             right: 100,
+//             top: 0,
+//             bottom: 0,
+//             child: Body(),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+//
+// class SideBar extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       width: 100,
+//       color: Colors.grey.shade200,
+//       child: SafeArea(
+//         child: Column(
+//           children: [
+//             Expanded(
+//               child: Container(),
+//             ),
+//             IconButton(
+//               icon: Icon(Icons.add),
+//               onPressed: () {},
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
+// class Body extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return SafeArea(
+//       child: Container(
+//         padding: EdgeInsets.all(16),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Text(
+//               "Contacts",
+//               style: TextStyle(
+//                 fontSize: 20,
+//                 fontWeight: FontWeight.w600,
+//               ),
+//             ),
+//             SizedBox(
+//               height: 32,
+//             ),
+//             Contact(
+//               name: "Nicolò Giuliani",
+//               address: "Riccione, Italy",
+//             ),
+//             Contact(
+//               name: "Nicolò Giuliani",
+//               address: "Riccione, Italy",
+//             ),
+//             Contact(
+//               name: "Nicolò Giuliani",
+//               address: "Riccione, Italy",
+//             ),
+//             Contact(
+//               name: "Nicolò Giuliani",
+//               address: "Riccione, Italy",
+//             ),
+//             Contact(
+//               name: "Nicolò Giuliani",
+//               address: "Riccione, Italy",
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
+// class Contact extends StatelessWidget {
+//   Contact({@required this.name, @required this.address});
+//   final String name;
+//   final String address;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       child: ListTile(
+//         title: Text(
+//           name,
+//           style: TextStyle(
+//             fontWeight: FontWeight.w500,
+//           ),
+//         ),
+//         subtitle: Text(
+//           address,
+//           style: TextStyle(
+//             fontSize: 12,
+//           ),
+//         ),
+//         leading: Icon(
+//           Icons.person_rounded,
+//           color: Colors.indigo,
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 // class HomePage extends StatelessWidget {
 //   @override

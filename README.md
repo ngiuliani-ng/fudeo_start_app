@@ -11,3 +11,8 @@ A new Flutter application. Fudeo exercises.
     - Lesson 2.2: https://bit.ly/383niz1
         - Argument: **Layouts**
             - Screenshot App: Screenshot\Screenshot_1614770674.png
+    - Lesson 2.3: https://bit.ly/3sOdFvM
+        - Argument: **Ulteriori Componenti**
+            - Screenshot App: Screenshot\Screenshot_1614834043.png
+            - Screenshot App: Screenshot\Screenshot_1614834047.png
+            - Screenshot App: Screenshot\Screenshot_1614834049.png
