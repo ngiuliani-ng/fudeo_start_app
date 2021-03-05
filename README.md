@@ -22,3 +22,6 @@ A new Flutter application. Fudeo exercises.
             - Screenshot App: Screenshot\Screenshot_1614939363.png
             - Screenshot App: Screenshot\Screenshot_1614939373.png
             - Screenshot App: Screenshot\Screenshot_1614939385.png
+    - Lesson 2.5: https://bit.ly/3uYfQ1W
+        - Argument: **GridView**
+            - Screenshot App: Screenshot\Screenshot_1614943061.png
