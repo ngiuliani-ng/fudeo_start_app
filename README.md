@@ -30,3 +30,6 @@ A new Flutter application. Fudeo exercises.
             - Screenshot App: Screenshot\Screenshot_1614964796.png
             - Screenshot App: Screenshot\Screenshot_1614964799.png
             - Screenshot App: Screenshot\Screenshot_1614964801.png
+    - Lesson 2.7: https://bit.ly/38fhvqd
+        - Argument: **Popup & Dialog**
+         - Screenshot App: Screenshot\Screenshot_1615026798.png
