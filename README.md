@@ -35,7 +35,7 @@ A new Flutter application. Fudeo exercises.
             - Screenshot App: Screenshot\Screenshot_1615026798.png
     - Lesson 3.1: https://bit.ly/3v2DOJd
         - Argument: **API & Parsing JSON**
-            - Screenshot App:
+            - Screenshot App: Screenshot\Screenshot_1615181465.png
             - Plugin:
                 - http: https://pub.dev/packages/http
                 - url_launcher: https://pub.dev/packages/url_launcher

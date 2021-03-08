@@ -20,21 +20,17 @@ class Post {
   }
 }
 
+/// La keywords [async] la aggiungiamo ad una funzione quando non sappiamo già a priori quando questa finirà.
+/// La keywords [await] la aggiungiamo ad un'altra funzione che aspetta il completamento di una con l'[async].
 class HomePage extends StatelessWidget {
   Future<List<Post>> downloadData() async {
-    /**
-     * JSON Sample: lib\json\topstories.json
-     */
     final response = await http.get(Uri.parse("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty"));
+
+    /// [dynamic] raccoglie qualsiasi altro tipo presente in Flutter, in questo caso è come dire: non conosco il tipo di ritorno.
     final List<dynamic> postIds = json.decode(response.body);
 
-    /**
-     * Il metodo [Future.wait()] aspetta il completamento di più [Future].
-     */
+    /// Il metodo [Future.wait()] aspetta il completamento di più metodi asincroni.
     return Future.wait(postIds.take(10).map((id) async {
-      /**
-       * JSON Sample: lib\json\26373543.json
-       */
       final response = await http.get(Uri.parse("https://hacker-news.firebaseio.com/v0/item/$id.json?print=pretty"));
       return Post.fromData(json.decode(response.body));
     }));
@@ -78,8 +74,14 @@ class HomePage extends StatelessWidget {
         title: Text("Hacker News"),
         centerTitle: true,
       ),
+
+      /// Il [FutureBuilder()] ci permette di avere un componente di caricamento mentre scarichiamo i dati
+      /// e solo successivamente, quando questi saranno disponibili, di mostrarli all'utente
+      /// con un'altro componete: nel nostro caso con la [ListView.separated()].
       body: FutureBuilder(
         future: downloadData(),
+
+        /// [snapshot] contiene varie informazioni sullo stato corrente e sui dati scaricati.
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
@@ -93,7 +95,7 @@ class HomePage extends StatelessWidget {
                 return Center(
                   child: Icon(
                     Icons.error_outline,
-                    size: 50,
+                    size: 35,
                   ),
                 );
               } else {
