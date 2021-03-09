@@ -11,6 +11,8 @@ class Post {
 
   Post(this.title, this.author, this.link);
 
+  /// I [factory] in Flutter vengono utilizzati per definire dei "costruttori"
+  /// di supporto che permettono di creare istanze con diversi tipi di argomenti.
   factory Post.fromData(dynamic data) {
     final title = data["title"];
     final author = data["by"];
