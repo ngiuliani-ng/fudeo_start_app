@@ -130,10 +130,8 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: Builder(
-        /**
-         * Il [Builder] ci permette di avere un [context] con una [Scaffold] al suo interno, utilizzata per
-         * aprire il pannello inferiore. Il [context] viene poi utilizato dalla funzione [onDaySelected].
-         */
+        /// Il [Builder] ci permette di avere un [context] con una [Scaffold] al suo interno, utilizzata per
+        /// aprire il pannello inferiore. Il [context] viene poi utilizato dalla funzione [onDaySelected].
         builder: (context) => GridView.count(
           crossAxisCount: 2,
           childAspectRatio: 1,

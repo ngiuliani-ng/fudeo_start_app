@@ -44,10 +44,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   void nextPage() {
-    /**
-     * Questa [if] potrebbe anche essere eliminata perchè la funzione [isLastPage] modifica l'icon presente nelle actions dell'appBar e
-     * quella presente nell'ultima page non richiama la funzione [nextPage] con l'onPressed.
-     */
+    /// Questa [if] potrebbe anche essere eliminata perchè la funzione [isLastPage] modifica l'icon presente nelle actions dell'appBar e
+    /// quella presente nell'ultima page non richiama la funzione [nextPage] con l'onPressed.
     if (!isLastPage()) {
       _pageController.animateToPage(_selectedPageIndex + 1, duration: Duration(milliseconds: 300), curve: Curves.linear);
     }

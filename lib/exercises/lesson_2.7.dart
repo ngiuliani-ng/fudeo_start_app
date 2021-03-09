@@ -44,10 +44,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   void nextPage() {
-    /**
-     * Questa [if] potrebbe anche essere eliminata perchè la funzione [isLastPage] modifica l'icon presente nelle actions dell'appBar e
-     * quella presente nell'ultima page non richiama la funzione [nextPage] con l'onPressed.
-     */
+    /// Questa [if] potrebbe anche essere eliminata perchè la funzione [isLastPage] modifica l'icon presente nelle actions dell'appBar e
+    /// quella presente nell'ultima page non richiama la funzione [nextPage] con l'onPressed.
     if (!isLastPage()) {
       _pageController.animateToPage(_selectedPageIndex + 1, duration: Duration(milliseconds: 300), curve: Curves.linear);
     }
@@ -145,10 +143,8 @@ class _HomePageState extends State<HomePage> {
               ? IconButton(
                   icon: Icon(Icons.check_circle),
                   onPressed: () {
-                    /**
-                     * Qui ho implementato il passaggio del [color] alla funzione [showLoginDialog]
-                     * così da rendere il [MaterialButton] sempre dipendente dal codice.
-                     */
+                    /// Qui ho implementato il passaggio del [color] alla funzione [showLoginDialog]
+                    /// così da rendere il [MaterialButton] sempre dipendente dal codice.
                     showLoginDialog(_introPages[_selectedPageIndex].color);
                   },
                 )
